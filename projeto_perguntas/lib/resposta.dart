@@ -12,7 +12,7 @@ class Resposta extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.blue, //Cor do botão.
+          primary: Color.fromARGB(255, 149, 33, 243), //Cor do botão.
           onPrimary: Colors.white, //Cor do texto dentro do botão.
         ),
         onPressed: quandoSelecionado,

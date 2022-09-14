@@ -79,7 +79,9 @@ class _PerguntaAppState extends State<PerguntaApp> {
     //Tem pergunta selecionada? Caso sim, pega as perguntas e joga para Questionario(), caso contrário vai para Resultado()
     return MaterialApp(//aqui é onde vai ficar todo o design da nossa aplicação
       home: Scaffold(//É o layout da aplicação
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
         appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 6, 148, 91),
           title: const Text('Perguntas'),
         ),
         body: temPerguntaSelecionada

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Resultado extends StatelessWidget {
-  
   final int pontuacao;
   final void Function() quandoReiniciarQuestionario;
 
   Resultado(this.pontuacao, this.quandoReiniciarQuestionario);
 
   String get fraseResultado {
-    if(pontuacao < 8) {
+    if (pontuacao < 8) {
       return 'Parabéns!';
     } else if (pontuacao < 12) {
       return 'Você é bom';
@@ -32,7 +31,21 @@ class Resultado extends StatelessWidget {
             ),
           ),
         ),
-        ElevatedButton(
+        TextButton(
+          onPressed: quandoReiniciarQuestionario,
+          child: Text(
+            'Reiniciar?',
+            style: TextStyle(
+              fontSize: 18,
+              color: Color.fromARGB(255, 255, 255, 255),
+            ),
+          ),
+          style: TextButton.styleFrom(
+            primary: Colors.blue,
+          ),
+        ),
+
+        /*ElevatedButton(
           style: ElevatedButton.styleFrom(
           primary: Colors.blue, //Cor do botão.
           onPrimary: Colors.white, //Cor do texto dentro do botão.
@@ -41,7 +54,7 @@ class Resultado extends StatelessWidget {
         child: Text('Reiniciar?',
         style: TextStyle(fontSize: 18),
         ),
-          )
+          )*/
       ],
     );
   }
