@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart'; //aqui é onde vai ficar todo o design da nossa aplicação
+import 'package:flutter/material.dart'; //Aqui é onde vai ficar todo o design da nossa aplicação
 import './resultado.dart';
 import './questionario.dart';
 
@@ -15,15 +15,21 @@ main () {
 
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0; //Índice que vai percorrer a lista.
+  var _pontuacaoTotal = 0;
+
   List<Map<String, Object>> _perguntas = []; //Uma lista de perguntas e dentro dessa lista, os elementos será do tipo MAP
 
-  void _responder() {
+  void _responder(int pontuacao) {
     if (temPerguntaSelecionada) {
       setState(() {//muda o estado da aplicação faz o incremento.
         _perguntaSelecionada++;
+        _pontuacaoTotal += pontuacao;
       });
     }
+    print(_pontuacaoTotal);
   }
+
+  
 
   bool get temPerguntaSelecionada {
     return _perguntaSelecionada < _perguntas.length;
@@ -34,15 +40,30 @@ class _PerguntaAppState extends State<PerguntaApp> {
     _perguntas = const [
       {
         'texto': 'Qual sua cor favorita?', //'chave': 'valor',
-        'respostas': ['Preto', 'Vermelho', 'Verde', 'Branco'],
+        'respostas': [
+          {'texto': 'Preto', 'pontuacao': 10},
+          {'texto': 'Vermelho', 'pontuacao': 5},
+          {'texto': 'Verde', 'pontuacao': 3}, 
+          {'texto': 'Branco', 'pontuacao': 1},
+          ],
       },
       {
         'texto': 'Qual é o seu animal favorito?',
-        'respostas': ['Coelho', 'Cobra', 'Elefante', 'Leão'],
+        'respostas': [
+          {'texto': 'Coelho', 'pontuacao': 10},
+          {'texto': 'Cobra', 'pontuacao': 5},
+          {'texto': 'Elefante', 'pontuacao': 3}, 
+          {'texto': 'Leão', 'pontuacao': 1},
+        ],
       },
       {
         'texto': 'Qual é o seu instrutor favorito?',
-        'respostas': ['Maria', 'João', 'Leo', 'Pedro'],
+        'respostas': [
+         {'texto': 'Maria', 'pontuacao': 10}, 
+         {'texto': 'João', 'pontuacao': 10}, 
+         {'texto': 'Leo', 'pontuacao': 10}, 
+         {'texto': 'Pedro', 'pontuacao': 10}
+         ],
       }
     ];
 
@@ -51,20 +72,20 @@ class _PerguntaAppState extends State<PerguntaApp> {
     //respostas.add(Resposta(textoResp, _responder));
     //}
 
-    //tem pergunta selecionada, caso sim pega as pergunta e joga para respostas, caso contrário coloca null
-    return MaterialApp(
-      //aqui é onde vai ficar todo o design da nossa aplicação
-      home: Scaffold(
+    //Tem pergunta selecionada? Caso sim, pega as perguntas e joga para Questionario(), caso contrário vai para Resultado()
+    return MaterialApp(//aqui é onde vai ficar todo o design da nossa aplicação
+      home: Scaffold(//É o layout da aplicação
         appBar: AppBar(
           title: const Text('Perguntas'),
         ),
         body: temPerguntaSelecionada
             ? Questionario(
                 //parâmetros nomeados.
-                perguntas: _perguntas,
-                perguntaSelecionada: _perguntaSelecionada,
-                quandoResponder: _responder)
-            : Resultado(),
+                perguntas: _perguntas,//A pergunta(Qual sua cor favorita?).
+                perguntaSelecionada: _perguntaSelecionada,//Índice que vai percorrer a lista.
+                quandoResponder: _responder,//A mudança de estado da aplicação.
+            )
+            : Resultado(_pontuacaoTotal),
       ),
     );
   }
