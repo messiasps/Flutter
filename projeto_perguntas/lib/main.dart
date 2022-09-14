@@ -7,7 +7,7 @@ main() => runApp(PerguntaApp());
 => Os parametros fica no lado esquerdo da seta, já o corpo da função fica do lado direito da seta
 Não é necessario colocar a palavra function e return e sem o uso de {}, por isso é bem simples de usar
 
-codigo abixo faz a mesma coisa do de cima
+Codigo abixo faz a mesma coisa do de cima
 main () {
   runApp(PerguntaApp);
 }
@@ -81,7 +81,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
       home: Scaffold(//É o layout da aplicação
         //backgroundColor: Color.fromARGB(255, 0, 0, 0),//Cor de fundo para o aplicação.
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 6, 148, 91),//Cor de fundo para a barra superior.
+          backgroundColor: const Color.fromARGB(255, 6, 148, 91),//Cor de fundo para a barra superior.
           title: const Text('Perguntas'),//Titulo da barra superior.
         ),
         body: temPerguntaSelecionada //Caso a pergunta selecionada seja true, faz o questionário.

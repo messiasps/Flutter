@@ -26,7 +26,7 @@ class Resultado extends StatelessWidget {
         Center(
           child: Text(
             fraseResultado,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 28,
             ),
           ),

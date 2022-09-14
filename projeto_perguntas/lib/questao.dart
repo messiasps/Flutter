@@ -10,10 +10,10 @@ class Questao extends StatelessWidget {
     return Container(
       //Aqui vou colocar estilo nas perguntas.
       width: double.infinity,
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Text(
         texto,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 28,
           fontWeight: FontWeight.w500,
           color: Color.fromARGB(255, 0, 0, 0),
