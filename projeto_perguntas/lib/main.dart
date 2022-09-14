@@ -4,10 +4,10 @@ import './questionario.dart';
 
 main() => runApp(PerguntaApp());
 /*
-=> Os  parametros fica no lado esquerdo da seta, já o corpo da função fica do lado direito da seta
+=> Os parametros fica no lado esquerdo da seta, já o corpo da função fica do lado direito da seta
 Não é necessario colocar a palavra function e return e sem o uso de {}, por isso é bem simples de usar
 
-codigo abixo  faz a mesma coisa do de cima
+codigo abixo faz a mesma coisa do de cima
 main () {
   runApp(PerguntaApp);
 }
