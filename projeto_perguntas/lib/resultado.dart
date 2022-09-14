@@ -10,11 +10,11 @@ class Resultado extends StatelessWidget {
     if (pontuacao < 8) {
       return 'Parabéns!';
     } else if (pontuacao < 12) {
-      return 'Você é bom';
+      return 'Você é bom!';
     } else if (pontuacao < 16) {
-      return 'Impressionante';
+      return 'Impressionante!';
     } else {
-      return 'Nível Jedi';
+      return 'Nível Jedi!';
     }
   }
 
@@ -37,7 +37,7 @@ class Resultado extends StatelessWidget {
             'Reiniciar?',
             style: TextStyle(
               fontSize: 18,
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: Color.fromARGB(255, 0, 0, 0),
             ),
           ),
           style: TextButton.styleFrom(

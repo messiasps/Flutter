@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart'; //Aqui é onde vai ficar todo o design da nossa aplicação
-import './resultado.dart';
-import './questionario.dart';
+import './resultado.dart';//Importando o componente resultado
+import './questionario.dart';//Importando o componente resultado
 
 main() => runApp(PerguntaApp());
 /*
@@ -17,11 +17,11 @@ class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0; //Índice que vai percorrer a lista.
   var _pontuacaoTotal = 0;
 
-  List<Map<String, Object>> _perguntas = []; //Uma lista de perguntas e dentro dessa lista, os elementos será do tipo MAP
+  List<Map<String, Object>> _perguntas = []; //Uma lista de perguntas e dentro dessa lista, os elementos será do tipo MAP.
 
   void _responder(int pontuacao) {
     if (temPerguntaSelecionada) {
-      setState(() {//muda o estado da aplicação faz o incremento.
+      setState(() {//Muda o estado da aplicação, faz o incremento.
         _perguntaSelecionada++;
         _pontuacaoTotal += pontuacao;
       });
@@ -44,7 +44,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
     _perguntas = const [
       {
         'texto': 'Qual sua cor favorita?', //'chave': 'valor',
-        'respostas': [
+        'respostas': [//O valor da CHAVE respostas é uma lista e dentro dessa lista tenho um MAP com uma CHAVE texto e OUTRA pontuação.
           {'texto': 'Preto', 'pontuacao': 10},
           {'texto': 'Vermelho', 'pontuacao': 5},
           {'texto': 'Verde', 'pontuacao': 3}, 
@@ -79,18 +79,18 @@ class _PerguntaAppState extends State<PerguntaApp> {
     //Tem pergunta selecionada? Caso sim, pega as perguntas e joga para Questionario(), caso contrário vai para Resultado()
     return MaterialApp(//aqui é onde vai ficar todo o design da nossa aplicação
       home: Scaffold(//É o layout da aplicação
-        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        //backgroundColor: Color.fromARGB(255, 0, 0, 0),//Cor de fundo para o aplicação.
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 6, 148, 91),
-          title: const Text('Perguntas'),
+          backgroundColor: Color.fromARGB(255, 6, 148, 91),//Cor de fundo para a barra superior.
+          title: const Text('Perguntas'),//Titulo da barra superior.
         ),
-        body: temPerguntaSelecionada
+        body: temPerguntaSelecionada //Caso a pergunta selecionada seja true, faz o questionário.
             ? Questionario(
                 //parâmetros nomeados.
-                perguntas: _perguntas,//A pergunta(Qual sua cor favorita?).
+                perguntas: _perguntas,//A pergunta (Qual sua cor favorita?).
                 perguntaSelecionada: _perguntaSelecionada,//Índice que vai percorrer a lista.
                 quandoResponder: _responder,//A mudança de estado da aplicação.
-            )
+            ) //Caso a pergunta selecionada seja false, mostra o resultado.
             : Resultado(_pontuacaoTotal, _reiniciarQuestionario),
       ),
     );
@@ -99,6 +99,9 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
 class PerguntaApp extends StatefulWidget {
   @override
+  //StatefulWidget: É um estado mutável, ou seja com estado, porém o que seria um estado?
+  //um estado é basicamente uma informação ou grupo de informações que são alterados em 
+  //tempo de execução do aplicativo, ou seja são momentos que o aplicativo pode possuir.
   _PerguntaAppState createState() {
     return _PerguntaAppState();
   }
