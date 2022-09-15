@@ -9,8 +9,8 @@ class Questao extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       //Aqui vou colocar estilo nas perguntas.
-      width: double.infinity,
-      margin: const EdgeInsets.all(10),
+      width: double.infinity,//valor máximo do double.
+      margin: const EdgeInsets.all(10),//margem para todos.
       child: Text(
         texto,
         style: const TextStyle(
