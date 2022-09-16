@@ -37,7 +37,7 @@ class Resultado extends StatelessWidget {
             'Reiniciar?',
             style: TextStyle(
               fontSize: 18,
-              color: Color.fromARGB(255, 0, 0, 0),
+              color: Color.fromARGB(255, 0, 0, 0),//aqui é onde muda a cor do resultado na tela.
             ),
           ),
           style: TextButton.styleFrom(
