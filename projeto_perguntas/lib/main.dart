@@ -15,7 +15,7 @@ main () {
 
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0; //Índice que vai percorrer a lista.
-  var _pontuacaoTotal = 0;
+  var _pontuacaoTotal = 0; 
 
   List<Map<String, Object>> _perguntas = []; //Uma lista de perguntas e dentro dessa lista, os elementos será do tipo MAP.
 
